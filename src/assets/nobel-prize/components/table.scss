@@ -1,0 +1,49 @@
+#mat-table {
+  .table-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+
+  td {
+    min-width: 120px;
+  }
+
+  .highlight {
+    color: $primary-color;
+    gap: 4px;
+
+    .open-in-icon {
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
+  .mat-mdc-header-cell {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mat-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .mat-mdc-cell {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+mat-paginator {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  z-index: 2;
+  border-top: 1px solid #e0e0e0;
+}

@@ -1,0 +1,20 @@
+#page-header {
+  background-color: $white-color;
+  padding-left: 0px;
+  border-bottom: 1px solid #eee;
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .app-name {
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    background: $primary-color;
+    color: $white-color;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+  }
+}

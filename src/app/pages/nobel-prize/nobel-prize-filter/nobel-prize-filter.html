@@ -1,0 +1,32 @@
+<section class="nobel-prize-filter">
+  <form [formGroup]="nobelPrizeFilter" class="form" (ngSubmit)="applyFilter()">
+    <mat-form-field appearance="outline">
+      <mat-label>Start Year</mat-label>
+      <input matInput [matDatepicker]="startPicker" formControlName="nobelPrizeYear" [min]="minYear" [max]="maxYear">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker startView="multi-year"
+        (yearSelected)="chosenYearHandler($event, startPicker, 'start')" panelClass="year-picker">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>End Year</mat-label>
+      <input matInput [matDatepicker]="endPicker" formControlName="yearTo"
+        [min]="nobelPrizeFilter.get('nobelPrizeYear')?.value" [max]="maxYear">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker startView="multi-year" (yearSelected)="chosenYearHandler($event, endPicker, 'end')"
+        panelClass="year-picker">
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Choose Category</mat-label>
+      <mat-select formControlName="nobelPrizeCategory">
+        <mat-option *ngFor="let option of categoryList" [value]="option.value">{{option.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button matButton type="submit" class="primary-btn btn-lg" [disabled]="nobelPrizeFilter.invalid">Apply
+      Filter</button>
+  </form>
+</section>

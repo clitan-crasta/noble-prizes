@@ -1,0 +1,78 @@
+@if (laureates && laureates?.fullName) {
+<mat-card class="card">
+    <mat-card-header>
+        <div class="avatar">
+            {{ initials }}
+        </div>
+        <div>
+            <mat-card-title class="card-title ">{{ laureates.fullName?.en || laureates.fullName }}</mat-card-title>
+            @if (laureates.birth) {
+            <mat-card-subtitle class="card-subtitle">
+                Born: {{ laureates.birth.date | date }}
+                @if (laureates.birth.place) {
+                <span>in {{ laureates.birth.place.locationString?.en || laureates.birth.place.locationString }}</span>
+                }
+            </mat-card-subtitle>
+            }
+        </div>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <section class="profile-section nobel-section">
+            @if (laureates.nobelPrizes?.length) {
+            <div class="section-title">Nobel Prizes</div>
+            @for (prize of laureates.nobelPrizes; track prize?.awardYear) {
+            <div class="nobel-prize-block">
+                <div class="prize-header">
+                    <span class="prize-title">{{ prize.categoryFullName?.en || prize.categoryFullName }}</span>
+                    <span class="prize-year">({{ prize.awardYear }})</span>
+                </div>
+                @if (prize.motivation) {
+                <div class="motivation">{{ prize.motivation?.en || prize.motivation }}</div>
+                }
+                @if (prize.prizeAmount) {
+                <div class="prize-amount">Prize Amount: <span>{{ prize.prizeAmount | currency }}</span></div>
+                }
+                @if (prize.affiliations?.length) {
+                <div class="affiliations-label">Affiliations:</div>
+                <ul class="affiliations-list">
+                    @for (aff of prize.affiliations; track aff?.name) {
+                    <li>
+                        {{ aff.name?.en || aff.name }},
+                        @if (aff.city) {<span>{{ aff.city?.en || aff.city }}</span>},
+                        @if (aff.country) {<span>{{ aff.country?.en || aff.country }}</span>}
+                    </li>
+                    }
+                </ul>
+                }
+                <mat-divider></mat-divider>
+            </div>
+            }
+            }
+        </section>
+        <section class="profile-section meta-section">
+            @if (laureates.gender) {
+            <div class="meta-row"><span class="meta-label">Gender:</span> <span class="meta-value">{{ laureates.gender
+                    }}</span></div>
+            }
+            @if (laureates.death) {
+            <div class="meta-row"><span class="meta-label">Died:</span> <span class="meta-value">{{ laureates.death.date
+                    | date }}</span>
+                @if (laureates.death.place) {
+                <span class="meta-value">in {{ laureates.death.place.locationString?.en ||
+                    laureates.death.place.locationString }}</span>
+                }
+            </div>
+            }
+        </section>
+    </mat-card-content>
+</mat-card>
+} @else if (laureates === undefined) {
+<mat-card>
+    <mat-card-content>Loading...</mat-card-content>
+</mat-card>
+} @else {
+<mat-card>
+    <mat-card-content>No laureate found.</mat-card-content>
+</mat-card>
+}

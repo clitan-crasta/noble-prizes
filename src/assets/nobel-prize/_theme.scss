@@ -1,0 +1,37 @@
+// Main theme file for Nobel Prizes app
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+
+// common component styles
+
+@import './components/header.scss';
+@import './components/table.scss';
+@import './components/button.scss';
+@import './components/card.scss';
+
+
+body {
+  background: $background-color;
+}
+
+.card {
+  background: #fff;
+  border-radius: $border-radius;
+  @include card-shadow;
+  padding: 1.5rem;
+}
+
+.btn-primary {
+  background: $primary-color;
+  color: #fff;
+  border-radius: $border-radius;
+  padding: 0.5em 1.5em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: darken($primary-color, 8%);
+  }
+}

@@ -1,0 +1,91 @@
+.profile-section {
+  margin-bottom: 18px;
+
+  .section-title {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.nobel-prize-block {
+  margin: 18px 0 12px 0;
+  padding: 18px;
+  background: #f7fafd;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(120, 96, 205, 0.06);
+  border: 1px solid #ececff;
+  transition: box-shadow 0.2s;
+
+  .prize-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .motivation,
+  .prize-amount {
+    color: #333;
+    margin-bottom: 6px;
+    padding-left: 10px;
+  }
+
+  .affiliations-label {
+    font-weight: 500;
+    margin: 12px 0 2px;
+  }
+
+  .affiliations-list {
+    margin: 4px 0 0;
+    padding-left: 20px;
+    font-size: 0.99rem;
+
+    li {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.meta-section {
+  margin-top: 18px;
+
+  .meta-row {
+    margin-bottom: 6px;
+    font-size: 1.04rem;
+    color: #444;
+    display: flex;
+    gap: 8px;
+
+    .meta-label {
+      font-weight: 500;
+      color: #888;
+    }
+
+    .meta-value {
+      color: #222;
+    }
+  }
+}
+
+mat-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 0;
+  min-height: 72px;
+}
+
+mat-divider {
+  margin: 12px 0;
+}
+
+@media (max-width: 600px) {
+  .nobel-prize-block {
+    padding: 10px 4px 8px;
+    font-size: 0.98rem;
+  }
+}

@@ -1,0 +1,71 @@
+@use "../variables" as theme;
+
+.card {
+  background: #fff;
+  border-radius: theme.$border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin: 24px auto;
+  max-width: 600px;
+  color: theme.$text-color;
+  font-family: theme.$font-family;
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: theme.$primary-color;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    margin-bottom: 16px !important;
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5em;
+  }
+
+  .card-content {
+    margin-bottom: 10px;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #7860cd;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(120, 96, 205, 0.08);
+    margin-top: 4px;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  mat-card-content > div {
+  margin-bottom: 10px;
+}
+
+}
+
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 100vw;
+    margin: 24px 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 !important;
+  }
+  .nobel-prize-block {
+    padding: 10px 4px 8px 4px;
+    font-size: 0.98rem;
+  }
+  mat-card-title {
+    font-size: 1.1rem;
+  }
+}

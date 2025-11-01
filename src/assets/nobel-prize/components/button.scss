@@ -1,0 +1,11 @@
+.primary-btn:not(:disabled) {
+  background: $primary-color !important;
+  color: $white-color !important;
+  border-radius: 4px !important;
+}
+
+.btn-lg {
+  height: 56px !important;
+  min-width: 120px !important;
+  padding: 0 16px;
+}
