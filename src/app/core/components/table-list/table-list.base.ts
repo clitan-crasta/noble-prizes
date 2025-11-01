@@ -78,9 +78,7 @@ export abstract class TableListBase<T> implements OnInit {
     this.__service.getAllByParams('list', filteOptions).subscribe({
       next: (res) => {
         this.dataSource = res.data;
-        if(filteOptions.offset == 0)
-          this.totalCount.set(res.meta.count);
-        console.log(res);
+        this.totalCount.set(res.meta.count);
       },
       complete: ()=>{
         this.setLoading(false);
@@ -97,8 +95,7 @@ export abstract class TableListBase<T> implements OnInit {
     this.resetPagination(this.paginator);
     this.filteOptions.limit = this.defaultPageSize;
     this.filteOptions.offset = 0;
-      this.filteOptions = { ...this.filteOptions, ...event };
-    console.log(this.filteOptions);
+    this.filteOptions = { ...this.filteOptions, ...event };
     this.getListData(this.filteOptions);
   }
 
@@ -117,13 +114,8 @@ export abstract class TableListBase<T> implements OnInit {
   onPageChange(
     event: PageEvent,
   ) {
-    debugger
-    console.log(event);
-    console.log(this.filteOptions);
     this.filteOptions = { ...this.filteOptions, offset: ((event.pageIndex || 0)  * event.pageSize), limit: event.pageSize }
     this.getListData(this.filteOptions);
-    console.log(this.filteOptions);
-
     }
 
   /**

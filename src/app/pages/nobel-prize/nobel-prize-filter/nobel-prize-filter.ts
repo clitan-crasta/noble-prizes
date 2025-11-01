@@ -1,26 +1,26 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import {
   MatDatepicker,
   MatDatepickerModule,
-} from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
-import { MY_FORMATS } from '../../../core/constants/date-formats.const';
-import type { FilterFormValue } from '../../../core/models/filter-form.interface';
-import { CATEGORY_OPTIONS } from '../../../core/constants/category-options.const';
-import { provideNativeDateAdapter } from '@angular/material/core';
+} from "@angular/material/datepicker";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { MatButtonModule } from "@angular/material/button";
+import { provideMomentDateAdapter } from "@angular/material-moment-adapter";
+import { MY_FORMATS } from "../../../core/constants/date-formats.const";
+import type { FilterFormValue } from "../../../core/models/filter-form.interface";
+import { CATEGORY_OPTIONS } from "../../../core/constants/category-options.const";
+import { provideNativeDateAdapter } from "@angular/material/core";
 
 /**
  * class NobelPrizeFilter
  */
 
 @Component({
-  selector: 'app-nobel-prize-filter',
+  selector: "app-nobel-prize-filter",
   providers: [provideNativeDateAdapter(), provideMomentDateAdapter(MY_FORMATS)],
   imports: [
     MatFormFieldModule,
@@ -31,7 +31,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatButtonModule,
     CommonModule,
   ],
-  templateUrl: './nobel-prize-filter.html',
+  templateUrl: "./nobel-prize-filter.html",
   styles: [
     `
       .nobel-prize-filter {
@@ -39,7 +39,13 @@ import { provideNativeDateAdapter } from '@angular/material/core';
         .form {
           display: flex;
           justify-content: flex-start;
+          flex-direction: row;
           gap: 12px;
+        }
+        @media (max-width: 600px) {
+          .form {
+            flex-direction: column;
+          }
         }
       }
     `,
@@ -112,13 +118,13 @@ export class NobelPrizeFilter implements OnInit {
   chosenYearHandler(
     normalizedYear: Date,
     datepicker: MatDatepicker<Date>,
-    type: 'start' | 'end'
+    type: "start" | "end"
   ) {
     const year = String(new Date(normalizedYear).getFullYear());
-    if (type === 'start') {
-      this.nobelPrizeFilter.get('nobelPrizeYear')?.setValue(year);
+    if (type === "start") {
+      this.nobelPrizeFilter.get("nobelPrizeYear")?.setValue(year);
     } else {
-      this.nobelPrizeFilter.get('yearTo')?.setValue(year);
+      this.nobelPrizeFilter.get("yearTo")?.setValue(year);
     }
     datepicker.close();
   }

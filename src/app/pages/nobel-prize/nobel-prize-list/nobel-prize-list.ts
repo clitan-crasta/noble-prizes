@@ -77,7 +77,6 @@ export class NobelPrizeList extends TableListBase<any> {
       next: (res) => {
         this.dataSource = res.nobelPrizes;
         this.totalCount.set(res.meta.count);
-        console.log(res);
       },
       complete: ()=>{
         this.setLoading(false);
